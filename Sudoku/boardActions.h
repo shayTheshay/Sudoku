@@ -9,6 +9,10 @@ int NotBaseValue(int** baseArray, int row, char column); //Check if the values c
 
 void randomizeBoardValues(int** board, int boardSize);
 
+void randomListOrderOfPlaces(int* freeSpace, int boardSize, int row, int column);
+
 void createBoardValues(int** board, int boardSize, int runnerNumber, int row, int column);
 
-bool isValidValues(int** board, int boardSize, int row, int col, int num, int sqrtNum);
+void listOfValidPlaces(int* freeSpace, int boardSize, int** board, int row, int column, int sqrNum);
+
+void emptySpacesSquare(int** board, int boardSize, int row, int column, int sqrNum, int numOfEmpty);

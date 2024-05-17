@@ -19,3 +19,7 @@ int checkRows(int sumVictory, int** array, int length);
 int checkColumns(int sumVictory, int** array, int length);
 
 int checkSquares(int sumVictory, int** array, int length);
+
+int checkRowOfPlacement(int row, int** array, int boardSize, int numCheckedOnRow);
+
+int checkColumnOfPlacement(int column, int** array, int boardSize, int numCheckedOnColumn);

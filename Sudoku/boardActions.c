@@ -7,6 +7,7 @@
 
 #include "boardActions.h"
 #include "presentBoard.h"
+#include "square.h"
 
 int changeSquareBoardVal(int*** arr, int row, char column, int value) {	// Changes the value of the given array 
 	//remember that checkValueInRangeSquare function already checked on the values
@@ -67,7 +68,7 @@ void createBoardValues(int*** board, int boardSize, int row, int column, int sqr
 		return;
 
 	int numOfEmpty = 0;
-	int** emptyPlaces = emptySpacesSquare(board, boardSize, row, column, sqrtNum, &numOfEmpty);
+	emptySpacesSquare(&board, boardSize, row, column, sqrtNum, &numOfEmpty);
 
 
 
@@ -80,14 +81,70 @@ void createBoardValues(int*** board, int boardSize, int row, int column, int sqr
 }
 
 
-int** emptySpacesSquare(int** board, int boardSize, int row, int column, int sqrNum, int numOfEmpty) { // ******************* needs to be continued *******************
+void emptySpacesSquare(int** board, int boardSize, int row, int column, int sqrNum, int numOfEmpty) { // ******************* needs to be continued *******************
 	
-	if ( row )
+	if (boardSize > numOfEmpty)
+		return;
 
-	int ;
-	for (int i = row; i < row + sqrNum; i++)
-		for (int j = column; j < column + sqrNum; j++)
-			printf("Continue code");
+	int* freeSpace = (int*) calloc(sizeof(int) , boardSize);
+	listOfValidPlaces(&freeSpace, boardSize, &board, row, column, sqrNum, numOfEmpty);
+	
+	int positionAccepted = 0;
+	while (freeSpace[positionAccepted] != 0) {
+		int positionGood = 0;
+		//Method that checks for the row and column for any place that is not complient with the rules of sudoku 
+		positionGood += checkRowOfPlacement(row, &board, boardSize, numOfEmpty);
+		positionGood += checkColumnOfPlacement(row, &board, boardSize, numOfEmpty);
 
+		if (positionGood == 2) {
+			positionAccepted++;
+			board[row][column] = numOfEmpty;
+
+
+
+		}
+	}
+	
+
+	//Loop that goes all over the possible places to input from the list, afterwards it checks where it came from
+
+
+	free(freeSpace);
+	return;
+
+}
+
+void listOfValidPlaces(int* freeSpace, int boardSize, int **board, int row, int column, int sqrNum, int numOfEmpty) {
+	int placement = 0;
+	for ( int i =  row; i < row + sqrNum; i++)
+		for ( int j = column; j < column + sqrNum; j++ )
+			if (board[i][j] == 0) {
+				freeSpace[placement] = placeOnBoard(row, column, sqrNum);
+				placement++;
+			}
+
+
+
+	//randomListOfPlaces ( &freeSpace, boardsSize, )
+				
+
+
+
+}
+
+void randomListOrderOfPlaces(int* freeSpace, int boardSize, int row, int column) {
+	//for 
+	
+
+
+
+}
+
+
+int placeOnBoard(int row, int column, int sqrNum) {
+	row %= sqrNum;
+	column %= sqrNum;
+
+	return row + column * sqrNum + 1;
 
 }

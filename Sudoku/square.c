@@ -187,3 +187,29 @@ int checkSquares(int sumSquare, int** array, int length) {
 
     return errorFind;
 }
+
+
+
+
+int checkRowOfPlacement(int row, int** array, int boardSize, int numCheckedOnRow) {
+    int errorFind = 1;
+    for (int j = 0; j < boardSize; j++) {
+        if (array[row][j] == numCheckedOnRow) {
+            errorFind = 0;
+            break;
+        }
+    }
+    return errorFind;
+}
+
+int checkColumnOfPlacement(int column, int** array, int boardSize, int numCheckedOnColumn) {
+    int errorFind = 1;
+    for (int i = 0; i < boardSize; i++) {
+        if (array[i][column] == numCheckedOnColumn) {
+            errorFind = 0;
+            break;
+        }
+    }
+    return errorFind;
+}
+
