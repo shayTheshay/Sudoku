@@ -13,6 +13,7 @@ void gameDetails() {
 
 	printf("Hi user;) this is the great sudoku game!\n");
 	printf("Before we are going to play do you want a recap of the rules? type:\"Yes\" or \"NO\"\n");
+	
 	char recapYesNo[5];
 	if (scanf_s("%s", recapYesNo, (unsigned)sizeof(recapYesNo)) == 1) {
 		if (strcmp(recapYesNo, "Yes") == 0) {
@@ -29,7 +30,7 @@ void gameDetails() {
 		}
 	}
 
-
+	
 }
 
 
