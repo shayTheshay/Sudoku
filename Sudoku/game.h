@@ -1,4 +1,4 @@
 #pragma once
 
 
-int gamePlay(int** board, int boardSize);
+int gamePlay(int*** board, int boardSize);

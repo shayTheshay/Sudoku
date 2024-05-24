@@ -1,8 +1,9 @@
-﻿  boardActions.c
-C:\Users\shays\source\repos\Sudoku\Sudoku\boardActions.c(56,34): warning C4028: formal parameter 1 different from declaration
-C:\Users\shays\source\repos\Sudoku\Sudoku\boardActions.c(58,8): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\shays\source\repos\Sudoku\Sudoku\boardActions.c(60,20): warning C4047: 'function': 'int **' differs in levels of indirection from 'int ***'
-C:\Users\shays\source\repos\Sudoku\Sudoku\boardActions.c(60,20): warning C4024: 'createBoardValues': different types for formal and actual parameter 1
-C:\Users\shays\source\repos\Sudoku\Sudoku\boardActions.c(65,31): warning C4028: formal parameter 1 different from declaration
-C:\Users\shays\source\repos\Sudoku\Sudoku\boardActions.c(88,65): warning C4020: 'createBoardValues': too many actual parameters
+﻿  game.c
+C:\Users\shays\source\repos\Sudoku\Sudoku\game.c(16,36): warning C4047: 'function': 'int **' differs in levels of indirection from 'int ***'
+C:\Users\shays\source\repos\Sudoku\Sudoku\game.c(16,36): warning C4024: 'victoryConditions': different types for formal and actual parameter 1
+  messages.c
+  square.c
+C:\Users\shays\source\repos\Sudoku\Sudoku\square.c(94,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+C:\Users\shays\source\repos\Sudoku\Sudoku\game.c(21,1): warning C4715: 'gamePlay': not all control paths return a value
   Sudoku.vcxproj -> C:\Users\shays\source\repos\Sudoku\x64\Debug\Sudoku.exe
