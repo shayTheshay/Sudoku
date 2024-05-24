@@ -3,7 +3,6 @@
 #include <math.h>
 #include <stdlib.h> 
 #include <malloc.h>
-#include <assert.h>
 #include <time.h>
 
 #include "square.h"
