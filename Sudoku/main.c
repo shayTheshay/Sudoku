@@ -15,18 +15,18 @@ void main() {
 	int score = 0;
 
 	while (1) {
-		
-		//gameDetails();
-		
-		int boardSize = 9;//numberOfTiles();
+		if (score == 0)
+			gameDetails();
+		else
+			printf("Your score is %d!", score);
+		int boardSize = numberOfTiles();
 		int** myBoard = NULL;
 		createBoard(&myBoard, boardSize);
 
 		randomizeBoardValues(&myBoard, boardSize);
-		printBoard(myBoard, boardSize);
 
-		printf("if you reached here it is not a good sign");
 		score += gamePlay(&myBoard, boardSize);
+
 		freeMultiDimenstionArr(&myBoard, boardSize);
 	}
 }

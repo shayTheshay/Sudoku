@@ -12,7 +12,7 @@
 void gameDetails() {
 
 	printf("Hi user;) this is the great sudoku game!\n");
-	printf("Before we are going to play do you want a recap of the rules? type:\"Yes\" or \"NO\"\n");
+	printf("Before we are going to play do you want a recap of the rules? type:\"Yes\" or \"No\"\n");
 	
 	char recapYesNo[5];
 	if (scanf_s("%s", recapYesNo, (unsigned)sizeof(recapYesNo)) == 1) {
@@ -25,7 +25,7 @@ void gameDetails() {
 
 		}
 		else {
-			printf("You did not enter yes or no, I will put the rules anyway\n");
+			printf("You did not enter Yes or No, I will put the rules anyway\n");
 			rulesExplained();
 		}
 	}
@@ -50,7 +50,7 @@ void rulesExplained() {
 		{2, 4, 8, 9, 5, 7, 1, 3 ,6},
 		{7, 6, 3, 4, 1, 8, 2 ,5, 9} };
 
-	int** exampleChosen = staticToDynamic(exampleArray, BOARD_SIZE);
+	int** exampleChosen = staticArrayToDynamic(exampleArray, BOARD_SIZE);
 	printBoard(exampleChosen, BOARD_SIZE);
 
 
@@ -65,8 +65,8 @@ void rulesExplained() {
 	printf("\nNow let's see a live game example\n");
 	wait(7);
 	printf("Look at this board, it has some missing numbers! it is not complete.\n");
-	
-	blankNumbersExapmpleEasy(&exampleChosen, BOARD_SIZE);
+	int difficulty = 0;
+	emptyRandomBoardNumbers(&exampleChosen, BOARD_SIZE, difficulty);
 	printBoard(exampleChosen, BOARD_SIZE);
 	wait(5);
 	printf("\nNow after we look at the board we need to fill it.\nTo fill the board type the letter you want for rows, and then the number for the column number.\n");
@@ -88,15 +88,18 @@ void rulesExplained() {
 int numberOfTiles() { //Choose on which number of tiles to play by user.
 	printf("On what number of tiles do you want to play? for now choose 9 If you don't type 9 it will be chosen automaticaly\n");
 	int numOfTiles = 9;
-	//scanf_s("%d", &numOfTiles); //When you want To play un - comment This message
+	scanf_s("%d", &numOfTiles); //When you want To play uncomment This message
+
 	if (numOfTiles == NULL)
 		numOfTiles = 9;
 	else 
 		switch (numOfTiles) {
 			//case 4:
 			case 9:
-			//case 16:
-
+				numOfTiles = 9;
+				break;
+			case 16:
+				numOfTiles = 16;
 				break;
 			default:
 				numOfTiles = 9;
@@ -152,8 +155,10 @@ void changeArrayValue(int*** array, int length) { //Responsible for all the func
 					checkChangeType = value * valPrev;
 					switch (checkChangeType) { //Check if you write a value, delete a value, or change a value you already changed in order to know when the board is full in order to proceed 
 					case 0://Needed to change
-						if (valPrev != 0 && value == 0)
+						if (valPrev != 0 && value == 0) {
 							countEmpty++;
+
+						}
 						else
 							if (valPrev == 0 && value != 0) 
 								countEmpty--;
